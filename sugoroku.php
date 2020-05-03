@@ -15,12 +15,12 @@
     $game= new sugorokuClass();
     //入力された名前を取得
     $name = $_GET['name'];
-		//DBに接続
-		$pdo = new PDO('mysql:host=localhost;dbname=sugorokuOnline;charset=utf8','aaa','aaa');
+    //DBに接続
+    $pdo = new PDO('mysql:host=localhost;dbname=sugorokuOnline;charset=utf8','aaa','aaa');
 
-		$sql = "UPDATE data SET name_a ={$name}, WHERE id = 1";
+    $sql = "UPDATE data SET name_a ={$name}, WHERE id = 1";
 
-		$res = $pdo->query($sql);
+    $res = $pdo->query($sql);
 
 ?>
 
