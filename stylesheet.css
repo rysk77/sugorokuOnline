@@ -1,0 +1,79 @@
+.container{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.Btn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+#reStart{
+  width: 33%;
+  background-color: #334DCC;
+}
+#sugoroku{
+  text-align: center;
+}
+/*「サイコロを振る」ボタン関係*/
+#rollBtn {
+  padding: 0 10px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+	padding: 15px 20px;
+  cursor: pointer;
+  box-shadow: 2px 7px 4px gray;
+  width: 80%;
+  height: auto;
+  font-size: 20px;
+}
+#rollBtn:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+.upperPart{
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+}
+.information{
+  margin: 0 auto;
+  width:50%;
+}
+#result{
+  margin: auto;
+  width:50%
+}
+/*すごろくのマス目関係*/
+.sugorokuArea{
+  overflow: hidden;
+}
+#board{
+  width: 100%;
+  overflow-x: scroll;
+}
+table{
+  width: 10500px;
+  border-spacing: 0;
+}
+td{
+  background-color: #61C359;
+  border: 1px solid black;
+  width:100px;
+  height: 100px;
+}
+.event{
+  background-color: #FcAA00;
+}
+.red{
+  background-color: red;
+}
+.blue{
+  background-color: blue;
+}
+.none{
+  display: none;
+}
