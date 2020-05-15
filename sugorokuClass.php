@@ -3,45 +3,149 @@
 header("Content-Type: text/html; charset=utf-8");
 class  sugorokuClass{
     var $state;         //Game State
-    var $name_a;          //ID A
-    var $name_b;          //ID B
+    var $name1;          //ID A
+    var $name2;          //ID B
+    var $login;
+    var $sum1;
+    var $sum2;
+    var $count1;
+    var $caout2;
+    var $dice1;
+    var $dice2;
+    var $flag;
+    var $eventNum;
 
-    // Constructor
-    function sugorokuClass(){
-        $this->state= 0;
-        $this->name_a = '-';
-        $this->name_b = '-';
+    function get1(){
+      $pdo = new PDO('mysql:host=localhost;dbname=sugoroku;charset=utf8','aaa','aaa');
+
+      $sql = "SELECT state from data where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->state = $stmt->fetchColumn();
+
+      $sql = "SELECT name1 from data where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->name1 = $stmt->fetchColumn();
+
+      $sql = "SELECT name2 from data where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->name2 = $stmt->fetchColumn();
+
+      $sql = "SELECT login from data where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->login = $stmt->fetchColumn();
+
+      $sql = "SELECT sum1 from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->sum1 = $stmt->fetchColumn();
+
+      $sql = "SELECT sum2 from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->sum2 = $stmt->fetchColumn();
+
+      $sql = "SELECT count1 from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->count1 = $stmt->fetchColumn();
+
+      $sql = "SELECT count2 from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->count2 = $stmt->fetchColumn();
+
+      $sql = "SELECT dice from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->dice1 = $stmt->fetchColumn();
+
+      $sql = "SELECT eventNum from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->eventNum = $stmt->fetchColumn();
+
+      $sql = "SELECT flag from masu where id = 1";
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      $this->flag = $stmt->fetchColumn();
+
+      $pdo = null;
     }
 
-    // 進行状態を調べてゲームを実行
-    function action($name){
-       switch($this->state){
-            case 0:     // プレイヤーのログイン
-                if ($this->name_a=='-'){
-                  $this->name_a= $name;
-                    $this->state = 1;
-                  }
-                if ($this->name_a!=$name && $this->name_b=='-'){
-                  $this->name_b= $name;
-                  $this->state = 2;
-                }
-                if ($this->name_a=='-' && $this->name_b=='-'){
-                    $this->state = 3;
-                  break;
-                }
-                 break;
-            case 10:     // player1のターン
 
-                //$this->state = 2;
-                break;
-            case 20:     // player2のターン
+      function get2(){
+      $pdo = new PDO('mysql:host=localhost;dbname=sugoroku;charset=utf8','aaa','aaa');
 
-                //$this->state = 1;
-                break;
-            default:
-            exit();
+          $sql = "SELECT state from data where id = 1";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->state = $stmt->fetchColumn();
+
+          $sql = "SELECT name1 from data where id = 1";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->name1 = $stmt->fetchColumn();
+
+          $sql = "SELECT name2 from data where id = 1";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->name2 = $stmt->fetchColumn();
+
+          $sql = "SELECT login from data where id = 1";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->login = $stmt->fetchColumn();
+
+          $sql = "SELECT sum1 from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->sum1 = $stmt->fetchColumn();
+
+          $sql = "SELECT sum2 from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->sum2 = $stmt->fetchColumn();
+
+          $sql = "SELECT count1 from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->count1 = $stmt->fetchColumn();
+
+          $sql = "SELECT count2 from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->count2 = $stmt->fetchColumn();
+
+          $sql = "SELECT dice from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->dice2 = $stmt->fetchColumn();
+
+          $sql = "SELECT eventNum from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->eventNum = $stmt->fetchColumn();
+
+          $sql = "SELECT flag from masu where id = 2";
+          $stmt = $pdo->query($sql);
+          $stmt->execute();
+          $this->flag = $stmt->fetchColumn();
+
+          $pdo = null;
         }
-        $this->put_file();
+
+
+
+    function update(){
+      $pdo = new PDO('mysql:host=localhost;dbname=sugoroku;charset=utf8','aaa','aaa');
+      $sql = "UPDATE data SET state = '$this->state', name1 = '$this->name1', name2 = '$this->name2',login = '$this->login' WHERE id = 1";
+  		$pdo->query($sql);
+
+      $pdo = null;
     }
 
 }
